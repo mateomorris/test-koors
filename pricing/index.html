@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="generator" content="Primo" />
+    <!-- HEAD_svelte-b61j3p_START -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=fredoka:300,400,500,600,700|space-grotesk:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.bunny.net/css?family=fredoka:300,400,500,600,700|open-sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i|space-grotesk:300,400,500,600,700" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://jtdhnbczrxzqlxrivvjl.supabase.co/storage/v1/object/public/images/e7c5bbdb-6af5-4188-9186-119ca0e82262/1687812197689favicon.svg">
+    <style>
+        /* Reset & standardize default styles */
+        @import url("https://unpkg.com/@primo-app/primo@1.3.64/reset.css") layer;
+
+        /* Design tokens (apply to components) */
+        :root {
+            --color-tint: #f8fbff;
+
+            --font-heading: "Space Grotesk", sans-serif;
+            --font-body: "Open Sans", sans-serif;
+
+            /* Colors */
+            --color-base: #1b5618;
+            /* not sure where used - picked a green */
+            --color-brand: #19DDA5;
+            /* turquoise (was medium aquamarine)*/
+            --color-accent: #9E809A;
+            /* mountbatten pink */
+            --color-accent-2: #119671;
+            /* jungle green */
+            --color-light: #F8F7F8;
+            /* alabastar */
+            --color-shade: #1D2628;
+            /* bastille (was charleston green) */
+            --color-inverted: white;
+            --color-tint: #e5eaf4;
+
+            /* Base values */
+            --color: var(--color-base);
+            --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
+            --border-radius: 8px;
+            --border-color: #eee;
+            --background: white;
+        }
+
+        /* Root element (use instead of `body`) */
+        #page {
+            font-family: var(--font-body);
+            color: var(--color-base);
+            line-height: 1.2;
+            font-size: 1.125rem;
+            background: var(--background);
+        }
+
+        .section.has-content {
+            display: flex;
+            justify-content: center;
+            padding: 5rem 2rem;
+        }
+
+        .section.has-content .content {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .section-container {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .heading-group {
+            display: grid;
+            gap: 1rem;
+            place-content: center;
+            text-align: center;
+        }
+
+        .heading-group .superhead {
+            font-family: var(--font-body);
+            color: var(--color-accent);
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .heading-group .subheading {
+            color: #4f6373;
+            line-height: 1.4;
+            max-width: 600px;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .heading {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            line-height: 1.1;
+            font-weight: 500;
+            max-width: 700px;
+        }
+
+        .button {
+            color: var(--color-shade);
+            background: var(--color-brand);
+            border: 2px solid var(--color-light);
+            border-radius: 6px;
+            padding: 8px 20px;
+            transition: 0.1s background, 0.1s color;
+        }
+
+        .button:hover {
+            color: var(--color-inverted);
+            background: var(--color-brand);
+            border-color: var(--color-inverted);
+        }
+
+        .button.inverted {
+            background: var(--color-white);
+            color: var(--color-brand);
+            border-color: #0d2436;
+        }
+
+        .link {
+            font-size: 1.125rem;
+            font-weight: 400;
+            color: var(--color-brand);
+        }
+
+        .link .arrow {
+            transition: transform 0.1s;
+        }
+
+        .link:hover .arrow {
+            transform: translateX(4px);
+        }
+    </style><!-- HEAD_svelte-b61j3p_END -->
+    <style>
+        @import url("https://unpkg.com/modern-normalize@1.1.0/modern-normalize.css");
+
+        header.svelte-gfi902.svelte-gfi902.svelte-gfi902 {
+            border-bottom: 1px solid var(--border-color);
+            background-color: var(--color-shade)
+        }
+
+        .section-container.svelte-gfi902.svelte-gfi902.svelte-gfi902 {
+            display: flex;
+            color: var(--color-light);
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem
+        }
+
+        .desktop-nav.svelte-gfi902.svelte-gfi902.svelte-gfi902 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            width: 100%
+        }
+
+        .desktop-nav.svelte-gfi902 .logo.svelte-gfi902.svelte-gfi902 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-right: 1.5rem;
+            width: var(--size)
+        }
+
+        .desktop-nav.svelte-gfi902 nav.svelte-gfi902.svelte-gfi902 {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem
+        }
+
+        .desktop-nav.svelte-gfi902 nav.svelte-gfi902 a.svelte-gfi902 {
+            font-size: 1rem;
+            font-weight: bold;
+            display: none
+        }
+
+        .desktop-nav.svelte-gfi902 nav a.nav-item.svelte-gfi902.svelte-gfi902 {
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.1s
+        }
+
+        .desktop-nav.svelte-gfi902 nav a.nav-item.svelte-gfi902.svelte-gfi902:hover {
+            border-color: var(--color-brand)
+        }
+
+        .desktop-nav.svelte-gfi902 button#open.svelte-gfi902.svelte-gfi902 {
+            font-size: 1.5rem;
+            margin-left: auto
+        }
+
+        nav#mobile-nav.svelte-gfi902.svelte-gfi902.svelte-gfi902 {
+            position: absolute;
+            flex-direction: column;
+            text-align: center;
+            background-color: var(--background-color, white);
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+            left: 0.5rem;
+            top: 0.5rem;
+            right: 0.5rem;
+            padding: 2rem;
+            z-index: 2
+        }
+
+        nav#mobile-nav.svelte-gfi902 a.svelte-gfi902.svelte-gfi902 {
+            display: block
+        }
+
+        nav#mobile-nav.svelte-gfi902 hr.svelte-gfi902.svelte-gfi902 {
+            width: 100%
+        }
+
+        nav#mobile-nav.svelte-gfi902 .button.svelte-gfi902.svelte-gfi902 {
+            width: 100%;
+            justify-content: center
+        }
+
+        nav#mobile-nav.svelte-gfi902 button#close.svelte-gfi902.svelte-gfi902 {
+            display: block;
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 1.5rem
+        }
+
+        @media(min-width: 600px) {
+
+            #open.svelte-gfi902.svelte-gfi902.svelte-gfi902,
+            #mobile-nav.svelte-gfi902.svelte-gfi902.svelte-gfi902 {
+                display: none
+            }
+
+            .desktop-nav.svelte-gfi902 nav.svelte-gfi902 a.svelte-gfi902 {
+                display: inline-block
+            }
+        }
+
+        .section-container.svelte-xdid9t.svelte-xdid9t {
+            display: grid;
+            gap: 0.5rem
+        }
+
+        .subheading.svelte-xdid9t.svelte-xdid9t {
+            margin-bottom: 4rem
+        }
+
+        .tiers.svelte-xdid9t.svelte-xdid9t {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            place-items: start;
+            gap: 2rem
+        }
+
+        .tiers.svelte-xdid9t .tier.svelte-xdid9t {
+            display: grid;
+            gap: 2rem;
+            border: 1px solid var(--border-color, #eee);
+            border-radius: var(--border-radius);
+            padding: 2.5rem 2rem;
+            width: 100%
+        }
+
+        .tiers.svelte-xdid9t .tier header.svelte-xdid9t {
+            display: grid;
+            gap: 0.5rem
+        }
+
+        .tiers.svelte-xdid9t .tier header .price.svelte-xdid9t {
+            font-weight: 600;
+            margin-bottom: 1rem
+        }
+
+        .tiers.svelte-xdid9t .tier header .price span.numerator.svelte-xdid9t {
+            font-size: 2rem;
+            color: var(--color-brand)
+        }
+
+        .tiers.svelte-xdid9t .tier header .price span.denominator.svelte-xdid9t {
+            opacity: 0.8
+        }
+
+        .tiers.svelte-xdid9t .tier .title.svelte-xdid9t {
+            color: var(--color);
+            font-size: 1.25rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            justify-self: flex-start;
+            margin-bottom: 0.5rem
+        }
+
+        .tiers.svelte-xdid9t .tier .description.svelte-xdid9t {
+            font-size: 0.875rem;
+            line-height: 1.5
+        }
+
+        .tiers.svelte-xdid9t .tier hr.svelte-xdid9t {
+            width: 100%;
+            border-color: var(--border-color, #eee)
+        }
+
+        .tiers.svelte-xdid9t .tier ul.features.svelte-xdid9t {
+            display: grid;
+            gap: 1rem
+        }
+
+        .tiers.svelte-xdid9t .tier ul.features li.svelte-xdid9t {
+            display: flex;
+            align-items: center;
+            gap: .75rem
+        }
+
+        .tiers.svelte-xdid9t .tier ul.features li .icon.svelte-xdid9t {
+            color: var(--color-accent, rebeccapurple)
+        }
+
+        .tiers.svelte-xdid9t .tier ul.features li .item.svelte-xdid9t {
+            font-size: 0.875rem
+        }
+
+        .tiers.svelte-xdid9t .tier .button.svelte-xdid9t {
+            width: 100%;
+            text-align: center;
+            font-size: 1rem
+        }
+
+        .section-container.svelte-oqvshp {
+            max-width: var(--inner-max-width, 800px);
+            padding: 4rem 2rem
+        }
+
+        .heading-group.svelte-oqvshp {
+            text-align: center
+        }
+
+        .faq-item-block.svelte-oqvshp {
+            text-align: left;
+            margin-top: 2em;
+            padding-top: 1em;
+            margin-bottom: 3em;
+            border-top: 1px solid var(--color-accent)
+        }
+
+        .question.svelte-oqvshp {
+            margin-bottom: 1em;
+            font-size: x-large
+        }
+
+        .answer.svelte-oqvshp {
+            margin-left: 2em;
+            margin-bottom: 2em
+        }
+
+        svg.svelte-iewj14 path.svelte-iewj14 {
+            fill: var(--color-accent-2)
+        }
+
+        section.svelte-iewj14.svelte-iewj14 {
+            background: var(--color-accent-2)
+        }
+
+        .section-container.svelte-iewj14.svelte-iewj14 {
+            display: grid;
+            gap: 3rem;
+            padding-top: 1rem
+        }
+
+        @media(min-width: 900px) {
+            .section-container.svelte-iewj14.svelte-iewj14 {
+                gap: 7rem;
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        .signup.svelte-iewj14.svelte-iewj14 {
+            color: var(--color-inverted);
+            display: grid;
+            gap: 1rem;
+            place-content: start
+        }
+
+        .signup.svelte-iewj14 form.svelte-iewj14 {
+            display: flex;
+            gap: .5rem
+        }
+
+        .signup.svelte-iewj14 form input.svelte-iewj14 {
+            color: var(--color-base)
+        }
+
+        .signup.svelte-iewj14 form input.svelte-iewj14,
+        .signup.svelte-iewj14 form button.svelte-iewj14 {
+            font-size: 1rem;
+            padding: 0.75rem 1rem;
+            border-radius: calc(var(--border-radius) / 2)
+        }
+
+        .signup.svelte-iewj14 form button.svelte-iewj14 {
+            background: var(--color-brand);
+            font-size: 1.125rem;
+            font-weight: 500;
+            padding: 0.5rem 1.5rem
+        }
+
+        .signup.svelte-iewj14 .footer.svelte-iewj14 {
+            opacity: 0.7;
+            font-size: 0.875rem;
+            line-height: 1.75
+        }
+
+        .cards.svelte-iewj14.svelte-iewj14 {
+            display: grid;
+            gap: 1rem
+        }
+
+        .cards.svelte-iewj14 .card.svelte-iewj14 {
+            display: grid;
+            grid-template-columns: 3rem auto;
+            -moz-column-gap: 1.5rem;
+            column-gap: 1.5rem;
+            row-gap: 0.5rem;
+            padding: 1.5rem;
+            background: var(--background);
+            border-radius: var(--border-radius)
+        }
+
+        .cards.svelte-iewj14 .card .icon.svelte-iewj14 {
+            color: var(--color-brand);
+            padding: 0.25rem;
+            font-size: 3rem;
+            grid-row: span 2
+        }
+
+        .cards.svelte-iewj14 .card .title.svelte-iewj14 {
+            font-weight: 600;
+            font-size: 1.125rem;
+            line-height: 1.5
+        }
+
+        .cards.svelte-iewj14 .card .description.svelte-iewj14 {
+            opacity: 0.7;
+            font-size: 1rem
+        }
+
+        .section-container.svelte-1m1m225.svelte-1m1m225 {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            padding-top: 1rem;
+            padding-bottom: 1rem
+        }
+
+        @media(min-width: 600px) {
+            .section-container.svelte-1m1m225.svelte-1m1m225 {
+                flex-direction: row
+            }
+        }
+
+        nav.svelte-1m1m225.svelte-1m1m225 {
+            display: flex;
+            gap: 1rem
+        }
+
+        nav.svelte-1m1m225 .link.svelte-1m1m225 {
+            border-color: transparent
+        }
+
+        nav.svelte-1m1m225 .link.svelte-1m1m225:hover {
+            border-color: initial
+        }
+
+        .primo.svelte-1m1m225.svelte-1m1m225 {
+            font-weight: 600;
+            font-size: 0.75rem
+        }
+
+        .primo.svelte-1m1m225 a.svelte-1m1m225 {
+            text-decoration: underline;
+            color: rgb(53, 217, 148)
+        }
+
+        .social-links.svelte-1m1m225.svelte-1m1m225 {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 1.5rem
+        }
+
+        .social-links.svelte-1m1m225 a.svelte-1m1m225 {
+            color: var(--color-accent, rebeccapurple);
+            transition: var(--transition, 0.1s transform)
+        }
+
+        .social-links.svelte-1m1m225 a.svelte-1m1m225:hover {
+            transform: scale(1.1)
+        }
+    </style>
+</head>
+
+<body id="page">
+
+    <div class="section" id="section-fd19b543">
+        <header class="svelte-gfi902">
+            <div class="section-container svelte-gfi902">
+                <div class="desktop-nav svelte-gfi902"><a href="/" class="logo svelte-gfi902" style="--size: 8rem;"><img src="https://jtdhnbczrxzqlxrivvjl.supabase.co/storage/v1/object/public/images/e7c5bbdb-6af5-4188-9186-119ca0e82262/1686935388620Logo_lightname-greenlogo.png" alt="Koor logo"></a>
+                    <nav class="svelte-gfi902"><a class="nav-item svelte-gfi902" href="/why">Why Koor</a><a class="nav-item svelte-gfi902" href="/product">Products</a><a class="nav-item svelte-gfi902" href="/pricing">Pricing</a><a class="nav-item svelte-gfi902" href="https://kb.koor.tech">Docs</a><a class="nav-item svelte-gfi902" href="/about">About</a>
+
+                        <button id="open" aria-label="Open mobile navigation" class="svelte-gfi902"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden role="img" width="1em" height="1em" viewBox="0 0 24 24" class="iconify iconify--ic"><!-- HTML_TAG_START -->
+                                <path fill="currentColor" d="M4 18h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1zm0-5h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1zM3 7c0 .55.45 1 1 1h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1z" /><!-- HTML_TAG_END -->
+                            </svg></button>
+                    </nav>
+                </div>
+            </div>
+        </header>
+    </div>
+    <div class="section" id="section-1b38759a">
+        <section class="svelte-xdid9t">
+            <div class="section-container svelte-xdid9t">
+                <div class="heading-group"><span class="superhead">pricing</span>
+                    <h2 class="heading">Koor Storage Distribution (KSD)</h2>
+                    <h3 class="subheading svelte-xdid9t">Level up your Rook Ceph storage operation with KSD, tools for experts. Start with a Pro subscription, or use the free trial to see for yourself.</h3>
+                </div>
+                <div class="tiers svelte-xdid9t">
+                    <div class="tier svelte-xdid9t">
+                        <header class="svelte-xdid9t">
+                            <div class="price svelte-xdid9t"><span class="numerator svelte-xdid9t">Free</span>
+                                <span class="denominator svelte-xdid9t">no time limit</span>
+                            </div>
+                            <h3 class="title svelte-xdid9t">Trial</h3>
+                            <span class="description svelte-xdid9t"><!-- HTML_TAG_START -->
+                                <p>For any use up to 4 data nodes. Register to get help and stay informed.</p><!-- HTML_TAG_END -->
+                            </span>
+                        </header>
+                        <hr class="svelte-xdid9t">
+                        <ul class="features svelte-xdid9t">
+                            <li class="svelte-xdid9t"><span class="icon svelte-xdid9t"></span>
+                                <span class="item svelte-xdid9t">Help Desk support</span>
+                            </li>
+                        </ul>
+                        <a href="/" class="button svelte-xdid9t">Register</a>
+                    </div>
+                    <div class="tier svelte-xdid9t">
+                        <header class="svelte-xdid9t">
+                            <div class="price svelte-xdid9t"><span class="numerator svelte-xdid9t">$49</span>
+                                <span class="denominator svelte-xdid9t">/ node / month</span>
+                            </div>
+                            <h3 class="title svelte-xdid9t">Pro</h3>
+                            <span class="description svelte-xdid9t"><!-- HTML_TAG_START -->
+                                <p>License to operate 4+ data nodes, invoiced on an annual basis. Get the support you need when you need it.</p><!-- HTML_TAG_END -->
+                            </span>
+                        </header>
+                        <hr class="svelte-xdid9t">
+                        <ul class="features svelte-xdid9t">
+                            <li class="svelte-xdid9t"><span class="icon svelte-xdid9t"></span>
+                                <span class="item svelte-xdid9t">On-going product updates</span>
+                            </li>
+                            <li class="svelte-xdid9t"><span class="icon svelte-xdid9t"></span>
+                                <span class="item svelte-xdid9t">Priority Help Desk support</span>
+                            </li>
+                            <li class="svelte-xdid9t"><span class="icon svelte-xdid9t"></span>
+                                <span class="item svelte-xdid9t">System assessment</span>
+                            </li>
+                        </ul>
+                        <a href="/" class="button svelte-xdid9t">Subscribe</a>
+                    </div>
+                    <div class="tier svelte-xdid9t">
+                        <header class="svelte-xdid9t">
+                            <div class="price svelte-xdid9t"><span class="numerator svelte-xdid9t">Let's talk</span>
+                                <span class="denominator svelte-xdid9t"></span>
+                            </div>
+                            <h3 class="title svelte-xdid9t">Enterprise</h3>
+                            <span class="description svelte-xdid9t"><!-- HTML_TAG_START -->
+                                <p>Deep support programs and volume discount to match your situation. We would love to talk and find out how best to help you.</p><!-- HTML_TAG_END -->
+                            </span>
+                        </header>
+                        <hr class="svelte-xdid9t">
+                        <ul class="features svelte-xdid9t">
+                            <li class="svelte-xdid9t"><span class="icon svelte-xdid9t"></span>
+                                <span class="item svelte-xdid9t">Everything in Pro</span>
+                            </li>
+                            <li class="svelte-xdid9t"><span class="icon svelte-xdid9t"></span>
+                                <span class="item svelte-xdid9t">Storage system design</span>
+                            </li>
+                            <li class="svelte-xdid9t"><span class="icon svelte-xdid9t"></span>
+                                <span class="item svelte-xdid9t">Regular health checks</span>
+                            </li>
+                            <li class="svelte-xdid9t"><span class="icon svelte-xdid9t"></span>
+                                <span class="item svelte-xdid9t">Performance tuning</span>
+                            </li>
+                        </ul>
+                        <a href="/" class="button svelte-xdid9t">Reach Out</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="section" id="section-facb1746">
+        <div class="section-container svelte-oqvshp">
+            <div class="heading-group svelte-oqvshp"><span class="superhead">Here are answers to the most common questions. Got a different question? Contact us at any time.</span>
+                <h2 class="heading">Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-item-block svelte-oqvshp">
+                <div class="question svelte-oqvshp">Does Koor help with data storage system architecture and installation of Rook Ceph?</div>
+                <div class="answer svelte-oqvshp"><!-- HTML_TAG_START -->
+                    <p><strong>Absolutely.</strong> We are happy to help define and set up Rook Ceph in your environments with your team.</p><!-- HTML_TAG_END -->
+                </div>
+            </div>
+            <div class="faq-item-block svelte-oqvshp">
+                <div class="question svelte-oqvshp">Which Rook Ceph versions are supported?</div>
+                <div class="answer svelte-oqvshp"><!-- HTML_TAG_START -->
+                    <p>KSD supports Rook as far back as v1.4. The latest is v1.12. Our experts can help where you are at.</p><!-- HTML_TAG_END -->
+                </div>
+            </div>
+            <div class="faq-item-block svelte-oqvshp">
+                <div class="question svelte-oqvshp">What is the definition of a "storage node" to which the license refers?</div>
+                <div class="answer svelte-oqvshp"><!-- HTML_TAG_START -->
+                    <p>A "storage node" refers to a Kubernetes-compatible node running storage components (e.g., Ceph MON, MGR, OSD, RGW, etc.).</p><!-- HTML_TAG_END -->
+                </div>
+            </div>
+            <div class="faq-item-block svelte-oqvshp">
+                <div class="question svelte-oqvshp">Why is there a 4-node minimum for licensing KSD Pro?</div>
+                <div class="answer svelte-oqvshp"><!-- HTML_TAG_START -->
+                    <p>You are choosing KSD Pro because you care about your data. You should always run at least 4 nodes to allow Rook and Ceph to auto-heal when there is a problem. For smoother recovery from failures, run 5 or more nodes.</p><!-- HTML_TAG_END -->
+                </div>
+            </div>
+            <div class="faq-item-block svelte-oqvshp">
+                <div class="question svelte-oqvshp">Do development, test, and quality assurance clusters need to be licenced?</div>
+                <div class="answer svelte-oqvshp"><!-- HTML_TAG_START -->
+                    <p>Licensing these environments is at your discretion. Often this data is throw-away. Perhaps it is generated by scripts, and no one will get upset if it is lost.<br /><br />On the other hand, you may have invested a lot of time in crafting your data sets for quality assurance. If the data is critical to your business, you should license the nodes.</p><!-- HTML_TAG_END -->
+                </div>
+            </div>
+            <div class="faq-item-block svelte-oqvshp">
+                <div class="question svelte-oqvshp">What Kubernetes versions are supported?</div>
+                <div class="answer svelte-oqvshp"><!-- HTML_TAG_START -->
+                    <p>Kubernetes 1.21 and higher is recommended. Other Kubernetes-based distributions, such as OpenShift and Rancher are also supported.</p><!-- HTML_TAG_END -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="section-8e768588"><svg viewBox="0 0 1440 175" fill="none" xmlns="http://www.w3.org/2000/svg" class="svelte-iewj14">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M1440 175H0V0C240 53.3333 480 80 720 80C960 80 1200 53.3333 1440 0V175Z" class="svelte-iewj14"></path>
+        </svg>
+        <section class="svelte-iewj14">
+            <div class="section-container svelte-iewj14">
+                <div class="signup svelte-iewj14">
+                    <h2 class="heading">Want to schedule a demo?</h2>
+                    <form action="" class="svelte-iewj14"><input type="email" placeholder="Your Email" class="svelte-iewj14">
+                        <button type="button" class="svelte-iewj14">Submit</button>
+                    </form>
+                    <span class="footer svelte-iewj14">Submit your email. We will be in touch to set up video call.</span>
+                </div>
+                <div class="cards svelte-iewj14">
+                    <div class="card svelte-iewj14">
+                        <div class="icon svelte-iewj14"></div>
+                        <span class="title svelte-iewj14">24/7 Help Desk</span>
+                        <span class="description svelte-iewj14">Contact us anytime.</span>
+                    </div>
+                    <div class="card svelte-iewj14">
+                        <div class="icon svelte-iewj14"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden role="img" width="1em" height="1em" viewBox="0 0 24 24" class="iconify iconify--mdi"><!-- HTML_TAG_START -->
+                                <path fill="currentColor" d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33c.85 0 1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z" /><!-- HTML_TAG_END -->
+                            </svg></div>
+                        <span class="title svelte-iewj14">Open Source and Source Available</span>
+                        <span class="description svelte-iewj14">Never get locked in.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="section" id="section-112635d9">
+        <footer class="section-container svelte-1m1m225">
+            <nav class="svelte-1m1m225"><a class="link svelte-1m1m225" href="/">Home</a><a class="link svelte-1m1m225" href="/about">About</a></nav>
+            <span class="primo svelte-1m1m225"><a href="https://primo.so" class="svelte-1m1m225">Primo</a> Powered </span>
+            <div class="social-links svelte-1m1m225"><a href="https://twitter.com/koor_tech" aria-label="Twitter" class="svelte-1m1m225"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden role="img" width="1em" height="1em" viewBox="0 0 24 24" class="iconify iconify--mdi"><!-- HTML_TAG_START -->
+                        <path fill="currentColor" d="M22.46 6c-.77.35-1.6.58-2.46.69c.88-.53 1.56-1.37 1.88-2.38c-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29c0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15c0 1.49.75 2.81 1.91 3.56c-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.98a8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56c.84-.6 1.56-1.36 2.14-2.23Z" /><!-- HTML_TAG_END -->
+                    </svg>
+                </a><a href="https://www.linkedin.com/company/koor-technologies-inc" aria-label="LinkedIn" class="svelte-1m1m225"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden role="img" width="1em" height="1em" viewBox="0 0 24 24" class="iconify iconify--mdi"><!-- HTML_TAG_START -->
+                        <path fill="currentColor" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77Z" /><!-- HTML_TAG_END -->
+                    </svg>
+                </a><a href="https://github.com/koor-tech" aria-label="GitHub" class="svelte-1m1m225"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden role="img" width="1em" height="1em" viewBox="0 0 24 24" class="iconify iconify--mdi"><!-- HTML_TAG_START -->
+                        <path fill="currentColor" d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33c.85 0 1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z" /><!-- HTML_TAG_END -->
+                    </svg>
+                </a></div>
+        </footer>
+    </div>
+
+    <script type="module">
+        const path = window.location.pathname === '/' ? '' : window.location.pathname
+        const [{
+            default: App
+        }] = await Promise.all([
+            import(path + '/_module.js')
+        ]).catch(e => console.error(e))
+        new App({
+            target: document.querySelector('body'),
+            hydrate: true,
+        })
+    </script>
+</body>
+
+</html>
